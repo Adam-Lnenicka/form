@@ -16,9 +16,10 @@ const SignupSchema = Yup.object().shape({
   .required('Required'),
 });
 
-export const ValidationSchemaExample = () => (
+const ContactForm = () => {
+return (
   <div>
-    <h1>Signup</h1>
+    <h1>Send Us a Message!</h1>
     <Formik
       initialValues={{
         firstName: '',
@@ -48,4 +49,7 @@ export const ValidationSchemaExample = () => (
       )}
     </Formik>
   </div>
-);
+)
+};
+
+export default ContactForm
