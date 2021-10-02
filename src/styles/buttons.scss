@@ -1,0 +1,17 @@
+button{
+    background-color: $clr-green;
+    color: $clr-white;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.7em 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    
+    &:hover{
+        background-color: $clr-green;
+        box-shadow: 0 3px 10px $clr-grey-darker;
+    }
+}
