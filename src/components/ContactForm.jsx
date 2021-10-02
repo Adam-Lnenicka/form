@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
     //yup validation - here we set criteria what we want the user to type
-  firstName: Yup.string()
+  fullName: Yup.string()
     .min(2, 'The name seems to be too short')
     .max(50, 'The entry seems to be too long')
     .required('Your name is required'),
@@ -51,7 +51,7 @@ return (
     <h1>Send Us a Message!</h1>
     <Formik
       initialValues={{
-        firstName: '',
+        fullName: '',
         email: '',
         notes: '',
       }}
@@ -69,20 +69,20 @@ return (
                 possibly not necessary for a project foor this scale but a good practice. */}
                 <div className="form__contact-field-box">
                     <div>
-                        <Field name="firstName" className="form__input" placeholder="Full Name"/>
-                        {errors.firstName && touched.firstName ? (<div className="form__error-message">{errors.firstName}</div>) : null}
+                        <Field name="fullName" className="form__input" placeholder="Full Name" aria-label="Full Name"/>
+                        {errors.fullName && touched.fullName ? (<div className="form__error-message">{errors.fullName}</div>) : null}
                         {/* this is linked to Yup. if the validation does not go through an error will be displayed */}
                     </div>
                     <div>
-                        <Field name="email" type="email" placeholder="Email" className="form__input" />
+                        <Field name="email" type="email" placeholder="Email" aria-label="email" className="form__input" />
                         {errors.email && touched.email ? <div className="form__error-message">{errors.email}</div> : null}
                     </div>
                 </div>
-                <Field component="textarea" name="notes" className="form__input form__textarea" placeholder="How can we help you today?" onKeyDown={(e) => { handleCount(e)}} />
+                <Field  component="textarea" name="notes" className="form__input form__textarea" placeholder="How can we help you today?"  
+                        aria-label="notes" onKeyDown={(e) => { handleCount(e)}} />
                     {/* apart from collecting the data we are tryggering the increased count by typing  */}
                     {/* We also need to convert the input to textarea */}
                 <div className="form__counter">Number of characters: {count}</div>
-
                     {errors.notes && touched.notes ? (<div className="form__error-message">{errors.notes}</div> ) : null}
                 <button type="submit">Submit</button>
 
