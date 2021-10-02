@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 const SignupSchema = Yup.object().shape({
     //yup validation - here we set criteria what we want the user to type
   fullName: Yup.string()
-    .min(2, 'The name seems to be too short')
+    .min(1, 'The name seems to be too short')
     .max(50, 'The entry seems to be too long')
     .required('Your name is required'),
     //it is a simple form so we assume that all information is required to gather from the user
@@ -16,8 +16,7 @@ const SignupSchema = Yup.object().shape({
   //for email we need the @ symnbol so that is why we email('Invalid email')
 
   notes: Yup.string()
-  .min(2, 'Please write us a longer message')
-  .max(300, 'Please write a shorter message')
+  .min(20, 'Please write us a longer message')
   .required('Let us know how we can help'),
 });
 
@@ -85,7 +84,6 @@ return (
                 <div className="form__counter">Number of characters: {count}</div>
                     {errors.notes && touched.notes ? (<div className="form__error-message">{errors.notes}</div> ) : null}
                 <button type="submit">Submit</button>
-
         </Form>
       )}
     </Formik>
